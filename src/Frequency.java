@@ -8,13 +8,16 @@ public class Frequency {
     private float voltagePrecision;
     private boolean enable;
 
+    /*
+    COLORED TEXT
+     */
     private String GREEN = "\u001B[32m";
     private String RED = "\u001B[31m";
     private String RESET = "\u001B[0m";
     private String WHITE_BG = "\u001B[47m";
 
 
-    // GETTERS
+    // GETTERS FOR ALL INFOS
     public void getInfo(){
         if (enable){
             System.out.println(bandName + " range infos :\n------------------");

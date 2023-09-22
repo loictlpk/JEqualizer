@@ -14,7 +14,9 @@ public class Main {
 
         getAllInfos(low, mid, high);
 
-//        ADDITIONAL OPTIONS
+/*
+        ADDITIONAL OPTIONS
+ */
         low.setHzPrecision(100);
         low.moreHz();
 //        low.lessHz();
