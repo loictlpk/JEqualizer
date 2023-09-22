@@ -1,16 +1,26 @@
 import javax.swing.*;
 
-public class Equalizer {
-    private JSlider slider1;
-    private JSlider slider2;
-    private JSlider slider3;
-    private JCheckBox lowCheckBox3;
-    private JCheckBox midCheckBox1;
+public class Equalizer extends JFrame{
+    private JSlider freqSliderLow;
+    private JSlider freqSliderMid;
+    private JSlider freqSliderHigh;
+    private JCheckBox midCheckBox;
+    private JCheckBox lowCheckBox;
+    private JSlider vSliderHigh;
+    private JSlider vSliderMid;
+    private JSlider vSliderLow;
+    private JSlider qSliderLow;
+    private JSlider qSliderMid;
+    private JPanel eqUi;
+    private JSlider qSliderHigh;
     private JCheckBox highCheckBox;
-    private JSlider slider4;
-    private JSlider slider5;
-    private JSlider slider6;
-    private JSlider slider7;
-    private JSlider slider8;
-    private JSlider slider9;
+
+    public Equalizer(){
+        setContentPane(eqUi);
+        setTitle("JEqualizer");
+        setSize(1299, 369);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
 }
