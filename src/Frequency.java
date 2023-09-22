@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Frequency {
     private final String bandName;
     private float hz;
@@ -7,6 +9,9 @@ public class Frequency {
     private float voltage;
     private float voltagePrecision;
     private boolean enable;
+
+    private int minFreqRange;
+    private int maxFreqRange;
 
     /*
     COLORED TEXT
@@ -29,8 +34,19 @@ public class Frequency {
             System.out.println("------------------\n" + bandName + " range disabled\n------------------\n");
     }
 
+    public int getMinFreqRange() {
+        return minFreqRange;
+    }
 
-// SETTERS
+    public int getMaxFreqRange() {
+        return maxFreqRange;
+    }
+
+    public float getHz() {
+        return hz;
+    }
+
+    // SETTERS
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
@@ -86,7 +102,7 @@ public class Frequency {
 
 
 // CONSTRUCTOR
-    public Frequency(String bandName, float hz, float voltage) {
+    public Frequency(String bandName, float hz, float voltage, int minFreqRange, int maxFreqRange) {
         this.bandName = bandName;
         this.enable = true;
         this.hz = hz;
@@ -95,5 +111,7 @@ public class Frequency {
         this.voltagePrecision = 3;
         this.width = 1.4f;
         this.widthPrecision = 0.4f;
+        this.minFreqRange = minFreqRange;
+        this.maxFreqRange = maxFreqRange;
     }
 }

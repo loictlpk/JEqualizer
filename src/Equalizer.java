@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +18,9 @@ public class Equalizer extends JFrame{
     private JPanel eqUi;
     private JSlider qSliderHigh;
     private JCheckBox highCheckBox;
+    private JLabel lowValue;
+    private JLabel midValue;
+    private JLabel highValue;
 
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
@@ -25,10 +30,25 @@ public class Equalizer extends JFrame{
 
     public Equalizer(){
 
-        Frequency low = new Frequency("low",200, 0);
-        Frequency mid = new Frequency("mid",2500, 0);
-        Frequency high = new Frequency("high",12000, 0);
+        Frequency low = new Frequency("low",200, 0,0, 200);
+        Frequency mid = new Frequency("mid",2500, 0, 200, 2000);
+        Frequency high = new Frequency("high",12000, 0, 2000, 20000);
         getAllInfos(low, mid, high);
+
+        freqSliderLow.setMinimum(low.getMinFreqRange());
+        freqSliderLow.setMaximum(low.getMaxFreqRange());
+        freqSliderLow.setValue((int)low.getHz());
+        lowValue.setText(String.valueOf((float)freqSliderLow.getValue()) + " hz");
+
+        freqSliderMid.setMinimum(mid.getMinFreqRange());
+        freqSliderMid.setMaximum(mid.getMaxFreqRange());
+        freqSliderMid.setValue((int) mid.getHz());
+        midValue.setText(String.valueOf((float)freqSliderMid.getValue()) + " hz");
+
+        freqSliderHigh.setMinimum(high.getMinFreqRange());
+        freqSliderHigh.setMaximum(high.getMaxFreqRange());
+        freqSliderHigh.setValue((int) high.getHz());
+        highValue.setText(String.valueOf((float)freqSliderHigh.getValue()) + " hz");
 
         setContentPane(eqUi);
         setTitle("JEqualizer");
@@ -78,5 +98,13 @@ public class Equalizer extends JFrame{
             }
         });
 
+        freqSliderLow.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                low.setHz(freqSliderLow.getValue());
+                low.getInfo();
+                lowValue.setText(String.valueOf(low.getHz()) + " hz");
+            }
+        });
     }
 }
