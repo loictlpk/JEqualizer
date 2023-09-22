@@ -30,8 +30,13 @@ public class Frequency {
             System.out.println(voltage + " V");
             System.out.println(width + " Octaves\n");
         }
-        else
-            System.out.println("------------------\n" + bandName + " range disabled\n------------------\n");
+        else{
+            System.out.println("------------------\n" + bandName + " range disabled\n------------------");
+            System.out.println(bandName + " range infos :\n------------------");
+            System.out.println(hz + " Hz");
+            System.out.println(voltage + " V");
+            System.out.println(width + " Octaves\n");
+        }
     }
 
     public int getMinFreqRange() {
@@ -71,8 +76,6 @@ public class Frequency {
     public void setVoltagePrecision(float voltagePrecision) {
         this.voltagePrecision = voltagePrecision;
     }
-
-
 
     // PREDEFINED VALUES MANAGER
     public void lessHz(){

@@ -35,6 +35,8 @@ public class Equalizer extends JFrame{
         Frequency high = new Frequency("high",12000, 0, 2000, 20000);
         getAllInfos(low, mid, high);
 
+        low.moreVoltage();
+
         freqSliderLow.setMinimum(low.getMinFreqRange());
         freqSliderLow.setMaximum(low.getMaxFreqRange());
         freqSliderLow.setValue((int)low.getHz());
@@ -63,10 +65,12 @@ public class Equalizer extends JFrame{
                 if(lowCheckBox.isSelected()){
                     low.setEnable(false);
                     System.out.println("Low Freq OFF");
+                    low.getInfo();
                 }
                 else{
                     low.setEnable(true);
                     System.out.println("Low Freq ON");
+                    low.getInfo();
                 }
 
             }
@@ -77,10 +81,12 @@ public class Equalizer extends JFrame{
                 if(midCheckBox.isSelected()){
                     mid.setEnable(false);
                     System.out.println("Mid Freq OFF");
+                    mid.getInfo();
                 }
                 else{
                     mid.setEnable(true);
                     System.out.println("Mid Freq ON");
+                    mid.getInfo();
                 }
             }
         });
@@ -89,11 +95,16 @@ public class Equalizer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(highCheckBox.isSelected()){
                     high.setEnable(false);
+//                    high.disabledMode(true);
                     System.out.println("High Freq OFF");
+                    high.getInfo();
                 }
                 else{
                     high.setEnable(true);
+//                    high.disabledMode(false);
                     System.out.println("High Freq ON");
+                    high.getInfo();
+
                 }
             }
         });
