@@ -4,9 +4,9 @@ public class Equalizer {
     private JSlider slider1;
     private JSlider slider2;
     private JSlider slider3;
-    private JCheckBox disableCheckBox2;
-    private JCheckBox disableCheckBox1;
-    private JCheckBox disableCheckBox;
+    private JCheckBox lowCheckBox3;
+    private JCheckBox midCheckBox1;
+    private JCheckBox highCheckBox;
     private JSlider slider4;
     private JSlider slider5;
     private JSlider slider6;

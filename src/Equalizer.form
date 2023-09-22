@@ -71,7 +71,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="2ab80" class="javax.swing.JCheckBox" binding="disableCheckBox2" default-binding="true">
+      <component id="2ab80" class="javax.swing.JCheckBox" binding="lowCheckBox3">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -79,7 +79,7 @@
           <text value="Disable"/>
         </properties>
       </component>
-      <component id="9cbc4" class="javax.swing.JCheckBox" binding="disableCheckBox1" default-binding="true">
+      <component id="9cbc4" class="javax.swing.JCheckBox" binding="midCheckBox1">
         <constraints>
           <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -87,7 +87,7 @@
           <text value="Disable"/>
         </properties>
       </component>
-      <component id="6ab9" class="javax.swing.JCheckBox" binding="disableCheckBox" default-binding="true">
+      <component id="6ab9" class="javax.swing.JCheckBox" binding="highCheckBox">
         <constraints>
           <grid row="2" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
