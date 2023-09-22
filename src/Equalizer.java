@@ -106,5 +106,21 @@ public class Equalizer extends JFrame{
                 lowValue.setText(String.valueOf(low.getHz()) + " hz");
             }
         });
+        freqSliderMid.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                mid.setHz(freqSliderMid.getValue());
+                mid.getInfo();
+                midValue.setText(String.valueOf(mid.getHz()) + " hz");
+            }
+        });
+        freqSliderHigh.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                high.setHz(freqSliderHigh.getValue());
+                high.getInfo();
+                highValue.setText(String.valueOf(high.getHz()) + " hz");
+            }
+        });
     }
 }
