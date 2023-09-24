@@ -51,6 +51,10 @@ public class Frequency {
         return hz;
     }
 
+    public float getVoltage() {
+        return voltage;
+    }
+
     // SETTERS
     public void setEnable(boolean enable) {
         this.enable = enable;

@@ -22,10 +22,22 @@ public class Equalizer extends JFrame{
     private JLabel midValue;
     private JLabel highValue;
 
+    private float savedVoltage;
+
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
         m.getInfo();
         h.getInfo();
+    }
+
+    private void disabledMode(boolean choice, Frequency freq){
+        if (!choice){
+            savedVoltage = freq.getVoltage();
+            freq.setVoltage(0);
+        }
+        else {
+           freq.setVoltage(savedVoltage);
+        }
     }
 
     public Equalizer(){
@@ -64,11 +76,13 @@ public class Equalizer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(lowCheckBox.isSelected()){
                     low.setEnable(false);
+                    disabledMode(true, low);
                     System.out.println("Low Freq OFF");
                     low.getInfo();
                 }
                 else{
                     low.setEnable(true);
+                    disabledMode(false, low);
                     System.out.println("Low Freq ON");
                     low.getInfo();
                 }
