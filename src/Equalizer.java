@@ -3,8 +3,11 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 
 public class Equalizer extends JFrame{
+    DecimalFormat df = new DecimalFormat("#0.00");
     private JSlider freqSliderLow;
     private JSlider freqSliderMid;
     private JSlider freqSliderHigh;
@@ -71,17 +74,14 @@ public class Equalizer extends JFrame{
         freqSliderLow.setMinimum(low.getMinFreqRange());
         freqSliderLow.setMaximum(low.getMaxFreqRange());
         freqSliderLow.setValue((int)low.getHz());
-        lowValue.setText(String.valueOf((float)freqSliderLow.getValue()) + " hz");
 
         freqSliderMid.setMinimum(mid.getMinFreqRange());
         freqSliderMid.setMaximum(mid.getMaxFreqRange());
         freqSliderMid.setValue((int) mid.getHz());
-        midValue.setText(String.valueOf((float)freqSliderMid.getValue()) + " hz");
 
         freqSliderHigh.setMinimum(high.getMinFreqRange());
         freqSliderHigh.setMaximum(high.getMaxFreqRange());
         freqSliderHigh.setValue((int) high.getHz());
-        highValue.setText(String.valueOf((float)freqSliderHigh.getValue()) + " hz");
 
         setContentPane(eqUi);
         setTitle("JEqualizer");
@@ -149,7 +149,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 low.setHz(freqSliderLow.getValue());
                 low.getInfo();
-                lowValue.setText(String.valueOf(low.getHz()) + " hz");
+                lowValue.setText(df.format(low.getHz()) + " hz");
             }
         });
         freqSliderMid.addChangeListener(new ChangeListener() {
@@ -157,7 +157,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 mid.setHz(freqSliderMid.getValue());
                 mid.getInfo();
-                midValue.setText(String.valueOf(mid.getHz()) + " hz");
+                midValue.setText(df.format(mid.getHz()) + " hz");
             }
         });
         freqSliderHigh.addChangeListener(new ChangeListener() {
@@ -165,7 +165,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 high.setHz(freqSliderHigh.getValue());
                 high.getInfo();
-                highValue.setText(String.valueOf(high.getHz()) + " hz");
+                highValue.setText(df.format(high.getHz()) + " hz");
             }
         });
         qSliderLow.addChangeListener(new ChangeListener() {
@@ -173,7 +173,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 low.setWidth((float) qSliderLow.getValue() * (maxOctaveValue/qSliderLow.getMaximum()) );
                 low.getInfo();
-                qValueLow.setText(String.valueOf(low.getWidth()) + " octaves");
+                qValueLow.setText(df.format(low.getWidth()) + " octaves");
             }
         });
         qSliderMid.addChangeListener(new ChangeListener() {
@@ -181,7 +181,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 mid.setWidth((float) qSliderMid.getValue() * (maxOctaveValue/qSliderMid.getMaximum()) );
                 mid.getInfo();
-                qValueMid.setText(String.valueOf(mid.getWidth()) + " octaves");
+                qValueMid.setText(df.format(mid.getWidth()) + " octaves");
 
             }
         });
@@ -190,7 +190,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 high.setWidth((float) qSliderHigh.getValue() * (maxOctaveValue/qSliderHigh.getMaximum()) );
                 high.getInfo();
-                qValueHigh.setText(String.valueOf(high.getWidth()) + " octaves");
+                qValueHigh.setText(df.format(high.getWidth()) + " octaves");
 
             }
         });
@@ -199,7 +199,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 low.setVoltage((float) vSliderLow.getValue() * (maxVoltageValue/vSliderLow.getMaximum()));
                 low.getInfo();
-                voltValueLow.setText(String.valueOf(low.getVoltage()) + " V");
+                voltValueLow.setText(df.format(low.getVoltage()) + " V");
             }
         });
         vSliderMid.addChangeListener(new ChangeListener() {
@@ -207,7 +207,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 mid.setVoltage((float) vSliderMid.getValue() * (maxVoltageValue/vSliderMid.getMaximum()));
                 mid.getInfo();
-                voltValueMid.setText(String.valueOf(mid.getVoltage()) + " V");
+                voltValueMid.setText(df.format(mid.getVoltage()) + " V");
             }
         });
         vSliderHigh.addChangeListener(new ChangeListener() {
@@ -215,7 +215,7 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 high.setVoltage((float) vSliderHigh.getValue() * (maxVoltageValue/vSliderHigh.getMaximum()));
                 high.getInfo();
-                voltValueHigh.setText(String.valueOf(high.getVoltage()) + " V");
+                voltValueHigh.setText(df.format(high.getVoltage()) + " V");
             }
         });
     }
