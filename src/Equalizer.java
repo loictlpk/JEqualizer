@@ -22,7 +22,9 @@ public class Equalizer extends JFrame{
     private JLabel midValue;
     private JLabel highValue;
 
-    private float savedVoltage;
+    private float lowSaveV;
+    private float midSaveV;
+    private float highSaveV;
 
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
@@ -32,11 +34,10 @@ public class Equalizer extends JFrame{
 
     private void disabledMode(boolean choice, Frequency freq){
         if (!choice){
-            savedVoltage = freq.getVoltage();
-            freq.setVoltage(0);
+            freq.setVoltage(lowSaveV);
         }
         else {
-           freq.setVoltage(savedVoltage);
+            freq.setVoltage(0);
         }
     }
 
@@ -48,6 +49,10 @@ public class Equalizer extends JFrame{
         getAllInfos(low, mid, high);
 
         low.moreVoltage();
+
+        lowSaveV = low.getVoltage();
+        midSaveV = mid.getVoltage();
+        highSaveV = high.getVoltage();
 
         freqSliderLow.setMinimum(low.getMinFreqRange());
         freqSliderLow.setMaximum(low.getMaxFreqRange());
@@ -94,11 +99,13 @@ public class Equalizer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(midCheckBox.isSelected()){
                     mid.setEnable(false);
+                    disabledMode(true, mid);
                     System.out.println("Mid Freq OFF");
                     mid.getInfo();
                 }
                 else{
                     mid.setEnable(true);
+                    disabledMode(false, mid);
                     System.out.println("Mid Freq ON");
                     mid.getInfo();
                 }
@@ -109,13 +116,13 @@ public class Equalizer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(highCheckBox.isSelected()){
                     high.setEnable(false);
-//                    high.disabledMode(true);
+                    disabledMode(true, high);
                     System.out.println("High Freq OFF");
                     high.getInfo();
                 }
                 else{
                     high.setEnable(true);
-//                    high.disabledMode(false);
+                    disabledMode(false, high);
                     System.out.println("High Freq ON");
                     high.getInfo();
 
