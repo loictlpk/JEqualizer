@@ -10,8 +10,8 @@ public class Frequency {
     private float voltagePrecision;
     private boolean enable;
 
-    private int minFreqRange;
-    private int maxFreqRange;
+    private final int minFreqRange;
+    private final int maxFreqRange;
 
     /*
     COLORED TEXT

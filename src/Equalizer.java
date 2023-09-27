@@ -26,6 +26,8 @@ public class Equalizer extends JFrame{
     private float midSaveV;
     private float highSaveV;
 
+    private final float maxOctaveValue = 3f;
+
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
         m.getInfo();
@@ -157,6 +159,27 @@ public class Equalizer extends JFrame{
                 high.setHz(freqSliderHigh.getValue());
                 high.getInfo();
                 highValue.setText(String.valueOf(high.getHz()) + " hz");
+            }
+        });
+        qSliderLow.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                low.setWidth((float) qSliderLow.getValue() * (maxOctaveValue/qSliderLow.getMaximum()) );
+                low.getInfo();
+            }
+        });
+        qSliderMid.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                mid.setWidth((float) qSliderMid.getValue() * (maxOctaveValue/qSliderMid.getMaximum()) );
+                mid.getInfo();
+            }
+        });
+        qSliderHigh.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                high.setWidth((float) qSliderHigh.getValue() * (maxOctaveValue/qSliderHigh.getMaximum()) );
+                high.getInfo();
             }
         });
     }
