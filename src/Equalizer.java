@@ -190,5 +190,19 @@ public class Equalizer extends JFrame{
                 low.getInfo();
             }
         });
+        vSliderMid.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                mid.setVoltage((float) vSliderMid.getValue() * (maxVoltageValue/vSliderMid.getMaximum()));
+                mid.getInfo();
+            }
+        });
+        vSliderHigh.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                high.setVoltage((float) vSliderHigh.getValue() * (maxVoltageValue/vSliderHigh.getMaximum()));
+                high.getInfo();
+            }
+        });
     }
 }
