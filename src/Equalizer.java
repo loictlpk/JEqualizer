@@ -27,6 +27,7 @@ public class Equalizer extends JFrame{
     private float highSaveV;
 
     private final float maxOctaveValue = 3f;
+    private final float maxVoltageValue = 6f;
 
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
@@ -180,6 +181,13 @@ public class Equalizer extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 high.setWidth((float) qSliderHigh.getValue() * (maxOctaveValue/qSliderHigh.getMaximum()) );
                 high.getInfo();
+            }
+        });
+        vSliderLow.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                low.setVoltage((float) vSliderLow.getValue() * (maxVoltageValue/vSliderLow.getMaximum()));
+                low.getInfo();
             }
         });
     }
