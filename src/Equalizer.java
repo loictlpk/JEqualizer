@@ -34,7 +34,12 @@ public class Equalizer extends JFrame{
 
     private void disabledMode(boolean choice, Frequency freq){
         if (!choice){
-            freq.setVoltage(lowSaveV);
+            if(freq.getMinFreqRange() == 0.0f)
+                freq.setVoltage(lowSaveV);
+            else if (freq.getMinFreqRange() == 200.0f)
+                freq.setVoltage(midSaveV);
+            else
+                freq.setVoltage(highSaveV);
         }
         else {
             freq.setVoltage(0);
