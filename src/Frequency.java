@@ -51,6 +51,10 @@ public class Frequency {
         return hz;
     }
 
+    public float getWidth() {
+        return width;
+    }
+
     public float getVoltage() {
         return voltage;
     }
