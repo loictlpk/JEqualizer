@@ -36,7 +36,7 @@ public class Equalizer extends JFrame{
     private float highSaveV;
 
     private final float maxOctaveValue = 3f;
-    private final float maxVoltageValue = 6f;
+    private final float maxVoltageValue = 18f;
 
     public static void getAllInfos(Frequency l, Frequency m, Frequency h){
         l.getInfo();
