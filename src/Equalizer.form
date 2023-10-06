@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="eqUi" layout-manager="GridLayoutManager" row-count="6" column-count="14" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="260" y="518" width="1374" height="429"/>
+      <xy x="486" y="423" width="1374" height="429"/>
     </constraints>
     <properties>
       <enabled value="true"/>
